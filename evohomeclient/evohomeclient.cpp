@@ -1135,6 +1135,10 @@ bool EvohomeClient::schedules_backup(std::string filename)
 						if (s_zoneId.empty())
 							continue;
 
+						std::string s_tcsName = (*j_tcs)["zones"][(int)(iz)]["name"].asString();
+						if (s_tcsName.empty())
+							continue;
+
 						url << "/WebAPI/emea/api/v1/temperatureZone/" << s_zoneId << "/schedule";
 						std::string s_res;
 						try
